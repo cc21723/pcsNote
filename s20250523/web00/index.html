@@ -65,7 +65,8 @@
         /* flex item */
         /* > 下一層 */
         /* 空白 後代的全部 少用 */
-        .cl-content>div , .item-link {
+        .cl-content>div,
+        .item-link {
             /* color: red; */
             /* 記得box 沒有垂直置中 只能用padding-top or flex-box推 */
             padding-top: 5px;
@@ -75,6 +76,18 @@
             /* background-color: lightblue; */
             background-image: url('./images/menu1.png');
             margin-top: 10px;
+        }
+
+        .cl-content>div:hover,
+        .item-link:hover {
+            background-image: url('./images/menu2.png');
+        }
+
+        .cl-bottom {
+            color: #000000;
+            font-size: 16px;
+            font-family: '標楷體';
+            text-align: center;
         }
     </style>
 </head>
@@ -114,7 +127,7 @@
             </div>
             <!-- cl-bottom -->
             <div class="cl-bottom">
-                col-bottom
+                最近更新日期：2025/05/23
             </div>
 
         </div>
