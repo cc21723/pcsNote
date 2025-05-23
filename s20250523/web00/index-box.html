@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+        }
+
+        .box {
+            width: 1024px;
+            height: 768px;
+            background-color: lightblue;
+            margin: auto;
+        }
+
+        /* header */
+        .header {
+            width: 1024px;
+            height: 65px;
+            background-color: lightblue;
+            margin: auto;
+        }
+
+        /* container */
+        .container {
+            display: flex;
+            width: 1024px;
+            /* 768 - 65 - 20 */
+            /* - 65px  */
+            /* -65px */
+            height: calc(768px - 65px - 20px);
+            background-color: lightpink;
+            margin: auto;
+        }
+
+        /* container-left */
+        .container-left {
+            /* width: 40%; */
+            width: 215px;
+            height: 100%;
+            background-color: lightcoral;
+        }
+
+        .container-right {
+            /* width: 40%; */
+            /* 1024 - 215 */
+            width: calc(1024px - 215px);
+            height: 100%;
+            background-color: lightyellow;
+        }
+
+        /* container-right */
+
+
+        /* footer */
+        .footer {
+            width: 1024px;
+            height: 20px;
+            background-color: lightgreen;
+            margin: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <header class="header">
+            <div class="header-box">
+
+            </div>
+        </header>
+        <!-- container -->
+        <div class="container">
+            <!-- container -->
+            <!-- container-left -->
+            <div class="container-left">
+                container-left
+
+            </div>
+            <!-- container-right -->
+            <div class="container-right">
+                container-right
+            </div>
+        </div>
+        <!-- footer -->
+        <footer class="footer">
+            footer
+        </footer>
+    </div>
+</body>
+
+</html>
