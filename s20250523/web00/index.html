@@ -32,8 +32,28 @@
             height: 50%; */
         }
 
+        .cl-title {
+            margin-top: 10px;
+            color: #FF00FF;
+            font-weight: 500;
+            font-size: 24px;
+            font-family: '標楷體';
+            text-align: center;
+
+            width: 100px;
+            height: 30px;
+            margin: auto;
+            /* background-color: lightgreen; */
+            /* border-bottom: 3px solid black; */
+
+            /* text-decoration: underline; */
+            /* text-decoration: underline;
+            text-decoration-color: black;
+            text-underline-offset: 10px; */
+        }
+
         /* flex container */
-        .cl-content{
+        .cl-content {
             display: flex;
             flex-direction: column;
             /* background-color: lightblue; */
@@ -41,9 +61,11 @@
             align-items: center;
             text-align: center;
         }
-        
+
         /* flex item */
-        .cl-content > div{
+        /* > 下一層 */
+        /* 空白 後代的全部 少用 */
+        .cl-content>div , .item-link {
             /* color: red; */
             /* 記得box 沒有垂直置中 只能用padding-top or flex-box推 */
             padding-top: 5px;
@@ -79,12 +101,14 @@
 
                 <!-- content -->
                 <div class="cl-content">
-                    <div>吉他社</div>
-                    <div>熱舞社</div>
-                    <div>棒球社</div>
-                    <div>羽球社</div>
-                    <div>足球社</div>
-                    <div>童軍社</div>
+                    <a href="" class="item-link">
+                        <div class="items">吉他社</div>
+                    </a>
+                    <div class="items">熱舞社</div>
+                    <div class="items">棒球社</div>
+                    <div class="items">羽球社</div>
+                    <div class="items">足球社</div>
+                    <div class="items">童軍社</div>
                 </div>
 
             </div>
