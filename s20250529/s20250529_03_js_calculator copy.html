@@ -82,6 +82,18 @@
                     result = num1Value + num2Value;
                     console.log('result', result);
                     break;
+                case '-':
+                    result = num1Value - num2Value;
+                    console.log('result', result);
+                    break;
+                case '*':
+                    result = num1Value * num2Value;
+                    console.log('result', result);
+                    break;
+                case '/':
+                    result = num1Value / num2Value;
+                    console.log('result', result);
+                    break;
 
                 default:
                     break;
@@ -92,7 +104,7 @@
             // 2-5 result to resultP
             // resultP.innerText = 'num1 + num2 = result';
 
-            resultP.innerText = `num1 ${num1Value} + num2 ${num2Value} = ${result}`;
+            resultP.innerText = `${num1Value} ${optValue } ${num2Value} = ${result}`;
 
 
         });
