@@ -87,6 +87,8 @@
                     console.log('result', result);
                     break;
                 case '*':
+                case 'x':
+                case 'X':
                     result = num1Value * num2Value;
                     console.log('result', result);
                     break;
@@ -94,8 +96,10 @@
                     result = num1Value / num2Value;
                     console.log('result', result);
                     break;
-
+                
                 default:
+                    result = 'error opt'
+                    console.log('result', result);
                     break;
             }
 
