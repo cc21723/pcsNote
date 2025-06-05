@@ -9,11 +9,7 @@
 
 <body>
 
-    <form action="" method="get">
-        <input type="text" name="name" id="">
-        <input type="text" name="mobile" id="">
-        <input type="text" name="address" id="">
-    </form>
+    <button type="button" id="myBtn">myBtn</button>
 
     <script>
 
@@ -23,6 +19,15 @@
         console.log('document typeof', typeof (document));
         console.log('window.console', window.console);
 
+        // 1.bind
+        let myBtn = document.getElementById('myBtn');
+
+        // 2.action
+        myBtn.addEventListener('click', function () {
+            console.log('myBtn', myBtn);
+            alert('myBtn click ok');
+
+        });
 
     </script>
 </body>
