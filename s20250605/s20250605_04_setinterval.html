@@ -19,6 +19,14 @@
         .bg-pink {
             background-color: pink;
         }
+
+        .bg-blue {
+            background-color: lightblue;
+        }
+
+        .bg-green {
+            background-color: lightgreen;
+        }
     </style>
 </head>
 
@@ -49,32 +57,27 @@
             console.log('myBtn', myBtn);
             // alert('myBtn click ok');
             // window.alert('myBtn click ok');
-            
-            // 1.
-            setTimeout(function () {
-                console.log('hihi mybtn');
-                box.setAttribute('class', 'box bg-pink');
-                box.setAttribute('class', 'box bg-pink');
 
+            // 1.
+            setInterval(function () {
+                // console.log('hello');
+                box.setAttribute('class', 'box bg-pink');
+                setTimeout(function () {
+                    box.setAttribute('class', 'box bg-blue');
+
+                }, 1000);
+
+                setTimeout(function () {
+                    box.setAttribute('class', 'box bg-green');
+
+                }, 2000);
             }, 3000);
 
-            // 2.
-            // 宣告
-            function sayHelloFun() {
-                // sayHelloFun()
-                console.log('sayHelloFun ok ');
+            // setTimeout(function () {
+            //     box.setAttribute('class', 'box bg-pink');
 
-            }
+            // }, 3000);
 
-            setTimeout(sayHelloFun, 3000);
-            setTimeout('sayHelloFun', 3000);
-
-
-
-
-
-
-            // 過三秒後 變粉紅色 ?
 
         });
 
