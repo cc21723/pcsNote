@@ -33,6 +33,9 @@
 
     <script>
 
+        // function
+
+
         // 1.bind
         let myBtn = document.getElementById('myBtn');
         let box = document.querySelector('.box');
@@ -48,9 +51,32 @@
             // window.alert('myBtn click ok');
             box.setAttribute('class', 'box bg-pink');
 
+            // 1.
+            setTimeout(function () {
+                console.log('hihi mybtn');
+
+            }, 1000);
+
+            // 2.
+            // 宣告
+            function sayHelloFun() {
+                // sayHelloFun()
+                console.log('sayHelloFun ok ');
+
+            }
+
+            setTimeout(sayHelloFun, 3000);
+            setTimeout('sayHelloFun', 3000);
+
+
+
+
+
+
             // 過三秒後 變粉紅色 ?
 
         });
+
 
     </script>
 </body>
