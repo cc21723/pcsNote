@@ -16,6 +16,7 @@
             background-color: lightpink;
         }
     </style>
+
 </head>
 
 <body>
@@ -30,11 +31,19 @@
 
     <script>
 
-        // 1.bind
-        // const box = document.querySelector('.box');
-        const box = $('.box');
 
-        console.log('box', box);
+
+        // 1.bind
+        const boxJs = document.querySelector('.box');
+        const boxJq = $('.box');
+        const myBtn = $('#myBtn');
+
+        // jquery method 只能用jqery obj
+        console.log('boxJs', boxJs);
+        console.log('boxJq', boxJq);
+
+       
+
 
 
         // 2.action
@@ -42,11 +51,11 @@
         //     box.setAttribute('class', 'box bg-pink');
 
         // })
-        box.click(function (e) {
+        // box.click(function (e) {
 
-            // $(this).attr('class', 'box bg-pink');
-            box.attr('class', 'box bg-pink');
-        });
+        //     // $(this).attr('class', 'box bg-pink');
+        //     box.attr('class', 'box bg-pink');
+        // });
 
 
 
