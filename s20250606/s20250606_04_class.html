@@ -86,15 +86,7 @@
         $(document).ready(function () {
             // 1.bind
             const btn = $('.btn');
-            // const redBtn = $('#redBtn');
-            // const greenBtn = $('#greenBtn');
-            // const blueBtn = $('#blueBtn');
             const myBox = $('#myBox');
-            console.log('redBtn', redBtn);
-            console.log('btn', btn);
-
-            //    redBtn = '123';
-
 
             // 2.action
             btn.click(function () {
@@ -102,8 +94,6 @@
                 let tmpColor = $(this).attr('data-color');
                 let tmpRank = $(this).attr('data-rank');
                 myBox.attr('class', `box bg-${tmpColor}`);
-                // $(selector).removeClas(classNames);
-                // $(selector).addClass(`bg-${tmpColor}`);
             });
 
 
