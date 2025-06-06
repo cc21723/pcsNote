@@ -98,6 +98,11 @@
                 </td>
             </tr>
 
+            <tr>
+                <td colspan="6">
+                    <span id="originPrice">300</span>
+                </td>
+            </tr>
         </table>
     </div>
 
@@ -119,11 +124,30 @@
 
 
         $(document).ready(function () {
+
+
+            // 下次會刪除 加總部分 重新講一次
+            function sum() {
+                let changeTotals = $('.totals');
+                console.log('changeTotals', changeTotals);
+                let sum = 0;
+                $.each(changeTotals, function (key, value) {
+                    console.log('value', value);
+                    let tmpTotal = Number($(value).text());
+                    console.log('tmpTotal', tmpTotal);
+                    sum += tmpTotal;
+                });
+                // console.log('sum', sum);
+                return sum;
+
+            }
+
             // 1.bind
             const counts = $('.counts');
             const totals = $('.totals');
             const myCount = $('#myCount');
             const myTotal = $('#myTotal');
+            const originPrice = $('#originPrice');
 
             // 2.action
 
@@ -148,6 +172,10 @@
                 console.log('tmpTr', tmpTr);
                 console.log('tmpTotal', tmpTotal);
                 tmpTotal.text(result);
+
+                let sumTotal = sum();
+                console.log('sumTotal', sumTotal);
+                originPrice.text(sumTotal);
 
             });
 
