@@ -34,22 +34,21 @@
             box-shadow: 0.05em 0.05em;
         }
 
-        .btn-red {
+        .bg-red {
             background-color: lightpink;
         }
 
-        .btn-blue {
+        .bg-blue {
             background-color: lightblue;
         }
 
-        .btn-green {
+        .bg-green {
             background-color: lightgreen;
         }
 
-        .box{
+        .box {
             width: 80%;
             height: 70vh;
-            background-color: lightblue;
             border: 5px solid black;
         }
     </style>
@@ -58,15 +57,15 @@
 
 <body>
     <div class="container">
-        <button class="btn-red" type="button">紅色</button>
-        <button class="btn-blue" type="button">藍色</button>
-        <button class="btn-green" type="button">綠色</button>
+        <button id="redBtn" class="bg-red" type="button">紅色</button>
+        <button id="greenBtn" class="bg-blue" type="button">藍色</button>
+        <button id="blueBtn" class="bg-green" type="button">綠色</button>
     </div>
 
     <hr>
 
     <div class="container">
-        <div class="box">
+        <div id="myBox" class="box">
 
         </div>
     </div>
@@ -80,8 +79,28 @@
 
     <script>
         $(document).ready(function () {
+            // 1.bind
+            redBtn = $('#redBtn');
+            greenBtn = $('#greenBtn');
+            blueBtn = $('#blueBtn');
+            myBox = $('#myBox');
+            console.log('redBtn', redBtn);
 
+            // 2.action
+            redBtn.click(function () {
+                console.log('redBtn ok');
+                myBox.attr('class', 'box bg-red');
+            });
 
+            greenBtn.click(function () {
+                console.log('redBtn ok');
+                myBox.attr('class', 'box bg-green');
+            });
+
+            blueBtn.click(function () {
+                console.log('blueBtn ok');
+                myBox.attr('class', 'box bg-blue');
+            });
         });
     </script>
 </body>
