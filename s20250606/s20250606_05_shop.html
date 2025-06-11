@@ -21,6 +21,10 @@
         img {
             border-radius: 50%;
         }
+
+        .text-red {
+            color: red;
+        }
     </style>
 
 </head>
@@ -205,14 +209,27 @@
                 tmpTotal.text(result);
 
                 // 總計顯示
-                let resultSum = sumFun();
-                originPrice.text(resultSum);
+                let resultSum = Number(sumFun());
+                console.log('resultSum', resultSum);
+
+                let endPrice = 0;
+                if (resultSum >= 500) {
+                    endPrice = resultSum * 0.8;
+                    originPrice.text(endPrice);
+                    originPrice.attr('class', 'text-red');
+
+                } else {
+                    endPrice = resultSum
+                    originPrice.text(endPrice);
+                    originPrice.attr('class', '');
+
+                }
 
 
                 // 1.洗衣服
                 // 2.烘衣服
                 // 3.折衣服
-        
+
                 // 1.洗衣服
                 // let 髒衣服 = 0;
                 // let 洗好的衣服 = 洗衣服(髒衣服);
