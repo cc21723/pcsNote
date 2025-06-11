@@ -51,7 +51,7 @@
         <h3>複利計算</h3>
         <hr>
         <p>
-            投入(萬) &nbsp;&nbsp;&nbsp;<input type="text" name="" id="money" value="1">
+            投入(萬) &nbsp;&nbsp;&nbsp;<input type="text" name="" id="money" value="100">
         </p>
         <p>
             投報(%) &nbsp;&nbsp;&nbsp;<input type="text" name="" id="rate" value="8">
@@ -96,6 +96,17 @@
             const rate = $('#rate');
             const year = $('#year');
             const myBtn = $('#myBtn');
+            let data = [
+                // {
+                //     'year': 1,
+                //     'money': 10,
+                // },
+                // {
+                //     'year': 2,
+                //     'money': 10.8,
+                // },
+            ];
+
 
             // 2.action
 
@@ -108,6 +119,35 @@
                 console.log('rateValue', rateValue);
                 console.log('yearValue', yearValue);
 
+                // 1.年 + 金額 放入 data
+                let sumMoney = 0;
+                for (let tmpYear = 1; tmpYear <= yearValue; tmpYear++) {
+                    console.log('tmpYear', tmpYear);
+                    // 將每一筆的 年 與 金額 放入 data
+                    let tmpObj = {};
+                    if (tmpYear == 1) {
+                        tmpObj = {
+                            'year': tmpYear,
+                            'money': moneyValue
+                        }
+                        sumMoney = moneyValue;
+                    } else {
+
+                        sumMoney = sumMoney * (1 + (rateValue / 100));
+                        tmpObj = {
+                            'year': tmpYear,
+                            'money': sumMoney
+                        }
+                    }
+
+                    data.push(tmpObj)
+
+                }
+                console.log('data', data);
+
+
+                // 2.data to show table
+                // jquery append
 
             });
 
