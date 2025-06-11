@@ -127,20 +127,20 @@
 
 
             // 下次會刪除 加總部分 重新講一次
-            function sum() {
-                let changeTotals = $('.totals');
-                console.log('changeTotals', changeTotals);
-                let sum = 0;
-                $.each(changeTotals, function (key, value) {
-                    console.log('value', value);
-                    let tmpTotal = Number($(value).text());
-                    console.log('tmpTotal', tmpTotal);
-                    sum += tmpTotal;
-                });
-                // console.log('sum', sum);
-                return sum;
+            // function sum() {
+            //     let changeTotals = $('.totals');
+            //     console.log('changeTotals', changeTotals);
+            //     let sum = 0;
+            //     $.each(changeTotals, function (key, value) {
+            //         console.log('value', value);
+            //         let tmpTotal = Number($(value).text());
+            //         console.log('tmpTotal', tmpTotal);
+            //         sum += tmpTotal;
+            //     });
+            //     // console.log('sum', sum);
+            //     return sum;
 
-            }
+            // }
 
             // 1.bind
             const counts = $('.counts');
@@ -173,9 +173,45 @@
                 console.log('tmpTotal', tmpTotal);
                 tmpTotal.text(result);
 
-                let sumTotal = sum();
-                console.log('sumTotal', sumTotal);
-                originPrice.text(sumTotal);
+                // let sumTotal = sum();
+                // console.log('sumTotal', sumTotal);
+                // originPrice.text(sumTotal);
+
+                // 完整查詢
+                // 全部的total 加總sum
+                // 找到我第一個total找到我第一個total
+                // id ok
+                console.log(tmpTotal.text());
+
+                // id -> class
+                // id 單一total
+                // class 全部的total
+                // why 重新抓一次 ??
+                // 養成好習慣 重新抓
+                let tmpTotals = $('.totals');
+                console.log('tmpTotals', tmpTotals);
+                console.log('counts', counts);
+
+
+                // json data / jq objs
+                let sum = 0;
+                $.each(tmpTotals, function (key, value) {
+                    console.log('key', key);
+                    console.log('value', value);
+                    let tmpValue = Number($(value).text());
+                    console.log('tmpValue', tmpValue);
+                    console.log('tmpValue typeof', typeof (tmpValue));
+                    sum += tmpValue;
+                    // sum = sum + tmpValue;
+                });
+
+                console.log('sum', sum);
+
+
+
+
+
+
 
             });
 
