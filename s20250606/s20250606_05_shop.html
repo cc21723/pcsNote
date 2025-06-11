@@ -142,6 +142,37 @@
 
             // }
 
+
+            // function
+            function sumFun() {
+
+                // id -> class
+                // id 單一total
+                // class 全部的total
+                // why 重新抓一次 ??
+                // 養成好習慣 重新抓
+                let tmpTotals = $('.totals');
+                console.log('tmpTotals', tmpTotals);
+                console.log('counts', counts);
+
+
+                // json data / jq objs
+                let sum = 0;
+                $.each(tmpTotals, function (key, value) {
+                    console.log('key', key);
+                    console.log('value', value);
+                    let tmpValue = Number($(value).text());
+                    console.log('tmpValue', tmpValue);
+                    console.log('tmpValue typeof', typeof (tmpValue));
+                    sum += tmpValue;
+                    // sum = sum + tmpValue;
+                });
+
+                console.log('sum', sum);
+                return sum;
+
+            }
+
             // 1.bind
             const counts = $('.counts');
             const totals = $('.totals');
@@ -173,43 +204,24 @@
                 console.log('tmpTotal', tmpTotal);
                 tmpTotal.text(result);
 
-                // let sumTotal = sum();
-                // console.log('sumTotal', sumTotal);
-                // originPrice.text(sumTotal);
-
-                // 完整查詢
-                // 全部的total 加總sum
-                // 找到我第一個total找到我第一個total
-                // id ok
-                console.log(tmpTotal.text());
-
-                // id -> class
-                // id 單一total
-                // class 全部的total
-                // why 重新抓一次 ??
-                // 養成好習慣 重新抓
-                let tmpTotals = $('.totals');
-                console.log('tmpTotals', tmpTotals);
-                console.log('counts', counts);
-
-
-                // json data / jq objs
-                let sum = 0;
-                $.each(tmpTotals, function (key, value) {
-                    console.log('key', key);
-                    console.log('value', value);
-                    let tmpValue = Number($(value).text());
-                    console.log('tmpValue', tmpValue);
-                    console.log('tmpValue typeof', typeof (tmpValue));
-                    sum += tmpValue;
-                    // sum = sum + tmpValue;
-                });
-
-                console.log('sum', sum);
                 // 總計顯示
-                originPrice.text(sum);
+                let resultSum = sumFun();
+                originPrice.text(resultSum);
 
 
+                // 1.洗衣服
+                // 2.烘衣服
+                // 3.折衣服
+        
+                // 1.洗衣服
+                // let 髒衣服 = 0;
+                // let 洗好的衣服 = 洗衣服(髒衣服);
+
+                // 2.烘衣服
+                // let 烘好的衣服 = 烘衣服(洗好的衣服);
+
+                // 3.折衣服
+                // let 折好的衣服 = 折衣服(烘好的衣服);
 
 
 
