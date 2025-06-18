@@ -188,6 +188,7 @@
                         // 1.第1年 sum = money
                         sum = moneyValue;
                         let tmpYear = i;
+                        // let tmpYear = i - 1;
                         let tmpMoney = moneyValue;
                         tmpObj = {
                             'id': i,
@@ -197,9 +198,10 @@
                     } else {
                         // 2.第n年 sum = sum *1.08
                         // 8  0.08
-                        let tmpRate = (1 + (rateValue/100));
+                        let tmpRate = (1 + (rateValue / 100));
                         sum = (sum * tmpRate).toFixed(2);
                         let tmpYear = i;
+                        // let tmpYear = i - 1;
                         let tmpMoney = sum;
                         tmpObj = {
                             'id': i,
