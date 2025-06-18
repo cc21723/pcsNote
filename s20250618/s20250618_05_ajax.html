@@ -6,12 +6,53 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
+        table {
+            width: 80%;
+            text-align: center;
+            margin: auto;
+        }
 
+        table,
+        th,
+        tr,
+        td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
     </style>
 
 </head>
 
 <body>
+
+    <button type="button" id="myBtn">myBtn</button>
+
+    <table id="myTable">
+        <tr>
+            <th>
+                Date
+            </th>
+            <th>
+                Open
+            </th>
+            <th>
+                High
+            </th>
+            <th>
+                Low
+            </th>
+            <th>
+                Close
+            </th>
+        </tr>
+        <tr>
+            <td>06/05/2025</td>
+            <td>203.5</td>
+            <td>204.75</td>
+            <td>200.15</td>
+            <td>200.63</td>
+        </tr>
+    </table>
 
 
     <!-- 載入jquery -->
@@ -23,6 +64,25 @@
     <script>
         $(document).ready(function () {
 
+            // 1.bind
+            let myTable = $('#myTable');
+            let myBtn = $('#myBtn');
+
+            // 2.action
+            myBtn.click(function (e) {
+                let tmpText = `
+                <tr>
+                    <td>06/05/2025</td>
+                    <td>203.5</td>
+                    <td>204.75</td>
+                    <td>200.15</td>
+                    <td>200.63</td>
+                </tr>
+            `;
+                myTable.append(tmpText);
+            });
+
+
             let url = "./data/data.json";
             $.ajax({
                 type: "get",
@@ -31,6 +91,9 @@
                 // dataType: "dataType",
                 success: function (response) {
                     console.log('response', response);
+                    let data = response;
+                    console.log('data', data);
+
 
                 }
             });
