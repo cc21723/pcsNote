@@ -68,7 +68,7 @@
     <div class="container bg-pink">
         <h3>試算結果</h3>
         <hr>
-        <table id="myTable">
+        <table>
             <tr>
                 <th>年</th>
                 <th>金額</th>
@@ -96,23 +96,15 @@
             const rate = $('#rate');
             const year = $('#year');
             const myBtn = $('#myBtn');
-            const myTable = $('#myTable');
             let data = [
-                {
-                    'id': 1,
-                    'year': 1,
-                    'money': '100.00'
-                },
-                {
-                    'id': 2,
-                    'year': 2,
-                    'money': '108.00'
-                },
-                {
-                    'id': 3,
-                    'year': 3,
-                    'money': '116.64'
-                },
+                // {
+                //     'year': 1,
+                //     'money': 10,
+                // },
+                // {
+                //     'year': 2,
+                //     'money': 10.8,
+                // },
             ];
 
 
@@ -127,23 +119,36 @@
                 console.log('rateValue', rateValue);
                 console.log('yearValue', yearValue);
 
+                // 1.年 + 金額 放入 data
+                let sumMoney = 0;
+                for (let tmpYear = 1; tmpYear <= yearValue; tmpYear++) {
+                    console.log('tmpYear', tmpYear);
+                    // 將每一筆的 年 與 金額 放入 data
+                    let tmpObj = {};
+                    if (tmpYear == 1) {
+                        tmpObj = {
+                            'year': tmpYear,
+                            'money': moneyValue
+                        }
+                        sumMoney = moneyValue;
+                    } else {
 
-                // 1.get data                
-                // 2.data to html table
+                        sumMoney = sumMoney * (1 + (rateValue / 100));
+                        tmpObj = {
+                            'year': tmpYear,
+                            'money': sumMoney
+                        }
+                    }
 
-                // 1.get data                
+                    data.push(tmpObj)
+
+                }
                 console.log('data', data);
 
-                // 2.data to html table
 
-                let tmpText = `
-                 <tr>
-                     <td>1</td>
-                     <td>10</td>
-                 </tr>
-                `;
+                // 2.data to show table
+                // jquery append
 
-                myTable.append(tmpText);
             });
 
         });
