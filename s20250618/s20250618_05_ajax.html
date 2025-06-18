@@ -45,13 +45,13 @@
                 Close
             </th>
         </tr>
-        <tr>
+        <!-- <tr>
             <td>06/05/2025</td>
             <td>203.5</td>
             <td>204.75</td>
             <td>200.15</td>
             <td>200.63</td>
-        </tr>
+        </tr> -->
     </table>
 
 
@@ -70,33 +70,49 @@
 
             // 2.action
             myBtn.click(function (e) {
-                let tmpText = `
-                <tr>
-                    <td>06/05/2025</td>
-                    <td>203.5</td>
-                    <td>204.75</td>
-                    <td>200.15</td>
-                    <td>200.63</td>
-                </tr>
-            `;
-                myTable.append(tmpText);
+                // get data.json
+                let url = "./data/data.json";
+                $.ajax({
+                    type: "get",
+                    url: url,
+                    // data: "data",
+                    // dataType: "dataType",
+                    success: function (response) {
+                        console.log('response', response);
+
+                        // 1.抓data
+                        let data = response;
+                        console.log('data', data);
+
+
+                        // 2.data foreach
+                        let tmpText = '';
+                        $.each(data, function (key, value) {
+                            console.log('key', key);
+                            console.log('value', value);
+
+                            //3.put text
+                            tmpText += `
+                            <tr>
+                                <td>${value.Date}</td>
+                                <td>${value.Open}</td>
+                                <td>${value.High}</td>
+                                <td>${value.Low}</td>
+                                <td>${value.Close}</td>
+                            </tr>
+                        `;
+                        });
+                        console.log('tmpText', tmpText);
+                        myTable.append(tmpText);
+
+                    }
+                });
+
             });
 
 
-            let url = "./data/data.json";
-            $.ajax({
-                type: "get",
-                url: url,
-                // data: "data",
-                // dataType: "dataType",
-                success: function (response) {
-                    console.log('response', response);
-                    let data = response;
-                    console.log('data', data);
 
 
-                }
-            });
         });
     </script>
 </body>
