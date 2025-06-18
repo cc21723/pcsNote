@@ -99,23 +99,23 @@
             const year = $('#year');
             const myBtn = $('#myBtn');
             const myTable = $('#myTable');
-            let data = [
-                {
-                    'id': 1,
-                    'year': 1,
-                    'money': '100.00'
-                },
-                {
-                    'id': 2,
-                    'year': 2,
-                    'money': '108.00'
-                },
-                {
-                    'id': 3,
-                    'year': 3,
-                    'money': '116.64'
-                },
-            ];
+            // let data = [
+            //     {
+            //         'id': 1,
+            //         'year': 1,
+            //         'money': '100.00'
+            //     },
+            //     // {
+            //     //     'id': 2,
+            //     //     'year': 2,
+            //     //     'money': '108.00'
+            //     // },
+            //     // {
+            //     //     'id': 3,
+            //     //     'year': 3,
+            //     //     'money': '116.64'
+            //     // },
+            // ];
 
 
             // 2.action
@@ -128,6 +128,18 @@
                 console.log('moneyValue', moneyValue);
                 console.log('rateValue', rateValue);
                 console.log('yearValue', yearValue);
+
+                // set data
+
+                let data = [];
+                // let data = [{},{}];
+                let tmpObj = {
+                    'id': 1,
+                    'year': 1,
+                    'money': '1000.00'
+                }
+
+                data.push(tmpObj);
 
 
                 // 1.get data                
