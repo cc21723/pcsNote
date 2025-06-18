@@ -22,8 +22,8 @@
     </div>
 
     <br>
-    <button type="button" id="hideBtn">hideBtn</button>
-    <button type="button" id="showBtn">showBtn</button>
+    <button type="button" id="fadeInBtn">fadeInBtn</button>
+    <button type="button" id="fadeOutBtn">fadeOutBtn</button>
     <button type="button" id="toggleBtn">toggleBtn</button>
 
     <!-- 載入jquery -->
@@ -35,26 +35,26 @@
         $(document).ready(function () {
             // 1.bind
             const myBox = $('#myBox');
-            const hideBtn = $('#hideBtn');
-            const showBtn = $('#showBtn');
+            const fadeInBtn = $('#fadeInBtn');
+            const fadeOutBtn = $('#fadeOutBtn');
             const toggleBtn = $('#toggleBtn');
 
             // 2.action
-            hideBtn.click(function (e) {
-                myBox.hide()
+            fadeInBtn.click(function (e) {
+                myBox.fadeIn(1000);
                 console.log('e', e);
 
             });
 
-            showBtn.click(function (e) {
-                myBox.show()
+            fadeOutBtn.click(function (e) {
+                myBox.fadeOut(1000);
                 // // form 不要submit不要submit
                 // e.preventDefault();
             });
 
             toggleBtn.click(function (e) {
-                myBox.toggle();
-                
+                myBox.fadeToggle(300);
+
             });
 
         });
