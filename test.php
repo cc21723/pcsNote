@@ -2,4 +2,6 @@
 
     $name = 'kai';
     $text = "hello $name";
+
+    
 ?>

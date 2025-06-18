@@ -8,11 +8,12 @@
     <style>
         .container {
             width: 80%;
-            height: 90vh;
+            /* height: 90vh; */
             background-color: lightblue;
             margin: auto;
             text-align: center;
             margin-bottom: 20px;
+            padding-bottom: 30px;
         }
 
         .bg-pink {
@@ -128,6 +129,16 @@
                 console.log('moneyValue', moneyValue);
                 console.log('rateValue', rateValue);
                 console.log('yearValue', yearValue);
+                // myTable.text('');
+                let tmpTableHead = `
+                    <tr>
+                        <th>年</th>
+                        <th>金額</th>
+                    </tr>
+                `;
+                myTable.text('');
+                myTable.append(tmpTableHead);
+
 
                 // set data
 
@@ -157,7 +168,7 @@
                 // [{},{}] 10年 10obj
 
                 // for year 10
-                for (let i = 1; i <= 10; i++) {
+                for (let i = 1; i <= yearValue; i++) {
                     console.log(`第${i}年`);
                     let tmpYear = i;
                     let tmpMoney = moneyValue;
@@ -170,11 +181,6 @@
                     data.push(tmpObj);
                 }
                 console.log('data', data);
-
-
-
-
-
 
                 // 1.get data                
                 // 2.data to html table
@@ -200,6 +206,8 @@
                      <td>10</td>
                  </tr>
                 `;
+
+
 
                 // foreach\
 
