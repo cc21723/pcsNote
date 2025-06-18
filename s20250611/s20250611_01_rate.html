@@ -84,6 +84,8 @@
         </table>
     </div>
 
+    <form action="" method="get"></form>
+
     <!-- 載入jquery -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
         integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
@@ -136,14 +138,44 @@
 
                 // 2.data to html table
 
+                // id -> class
+                // 1 -> many
                 let tmpText = `
                  <tr>
                      <td>1</td>
                      <td>10</td>
                  </tr>
+                 <tr>
+                     <td>2</td>
+                     <td>10</td>
+                 </tr>
+                 <tr>
+                     <td>3</td>
+                     <td>10</td>
+                 </tr>
                 `;
 
-                myTable.append(tmpText);
+                // foreach\
+
+                let sum = 0;
+                let tmpResult = ``;
+
+                $.each(data, function (key, value) {
+                    console.log('key', key);
+                    console.log('value', value);
+                    tmpResult += `
+                        <tr>
+                            <td>${value.year}</td>
+                            <td>${value.money}</td>
+                        </tr>
+                    `;
+                });
+
+                console.log('tmpResult', tmpResult);
+
+
+
+                myTable.append(tmpResult);
             });
 
         });
