@@ -60,8 +60,10 @@
                 url: url,
                 // data: "data",
                 // dataType: "dataType",
+                dataType: "json",
                 success: function (response) {
                     console.log('response', response);
+                    console.log('response typeof', typeof (response));
 
                 }
             });
