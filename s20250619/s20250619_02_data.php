@@ -2,7 +2,8 @@
 function dd($data)
 {
     echo "<pre>";
-    print_r($data);
+    // print_r($data);
+    var_dump($data);
     echo "</pre>";
 }
 
