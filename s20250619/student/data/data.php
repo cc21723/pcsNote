@@ -7,7 +7,7 @@ function dd($data)
     echo "</pre>";
 }
 
-
+// 1.假資料
 $data = [
     [
         'id' => 1,
@@ -22,6 +22,9 @@ $data = [
         'name' => 'cat',
     ],
 ];
+
+// 2.真實DB
+// $data = db , select all ...
 
 // dd($data);
 // array to json

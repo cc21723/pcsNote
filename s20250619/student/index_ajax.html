@@ -23,23 +23,15 @@
 </head>
 
 <body>
-    <table>
+    <table id="myTable">
         <tr>
             <th>id</th>
             <th>name</th>
         </tr>
-        <tr>
+        <!-- <tr>
             <td>1</td>
             <td>amy</td>
-        </tr>
-        <tr>
-            <td>1</td>
-            <td>amy</td>
-        </tr>
-        <tr>
-            <td>1</td>
-            <td>amy</td>
-        </tr>
+        </tr> -->
 
 
     </table>
@@ -53,6 +45,10 @@
         $(document).ready(function () {
             // ajax call php data
 
+            // 1.bind
+            const myTable = $('#myTable');
+            // 2.action
+
             let url = "./data/data.php";
             // dataType
             $.ajax({
@@ -64,7 +60,35 @@
                 success: function (response) {
                     console.log('response', response);
                     console.log('response typeof', typeof (response));
+                    let data = response;
+                    console.log('data', data);
 
+
+                    // data
+                    // 單筆
+                    // let tmpText = `
+                    //     <tr>
+                    //         <td>1</td>
+                    //         <td>amy ok</td>
+                    //     </tr>
+                    //     `;
+
+
+                    // 多筆
+                    // for each
+                    let tmpResult = '';
+                    $.each(data, function (key, value) {
+                        let tmpText = `
+                        <tr>
+                            <td>${value.id}</td>
+                            <td>${value.name}</td>
+                        </tr>
+                        `;
+                        tmpResult += tmpText;
+                    });
+
+
+                    myTable.append(tmpResult);
                 }
             });
 
