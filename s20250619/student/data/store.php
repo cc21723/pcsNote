@@ -8,4 +8,7 @@ function dd($data)
 }
 
 $input = $_GET;
-dd($input);
+$input['rank'] = 'A';
+// dd($input);
+
+echo json_encode($input);
