@@ -8,7 +8,14 @@ function dd($data)
 }
 
 $input = $_GET;
+
+// $input = [
+//     'name' => 'test',
+//     'mobile' => '0911',
+// ];
+
 $input['rank'] = 'A';
+$input['msg'] = 'ok';
 // dd($input);
 
 echo json_encode($input);
