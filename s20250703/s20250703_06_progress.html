@@ -44,6 +44,16 @@
         </div>
     </div>
 
+    <div class="container mt-3">
+        <div class="row">
+            <div class="col">
+                <div class="d-grid">
+                    <button type="button" id="addBtn" class="btn btn-warning btn-block">+10% Button</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
     <!-- 載入bs5 js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.7/js/bootstrap.min.js"
@@ -61,6 +71,8 @@
             const myBtn = $('#myBtn');
             const myBar = $('#myBar');
             const resetBtn = $('#resetBtn');
+            const addBtn = $('#addBtn');
+
 
             // 2.action
             myBtn.click(function () {
@@ -69,6 +81,15 @@
 
             resetBtn.click(function () {
                 myBar.css('width', '20%');
+            });
+
+
+
+            addBtn.click(function () {
+                let currentWidth = parseFloat(myBar.css('width')) / myBar.parent().width() * 100;
+                let newWidth = Math.min(currentWidth + 10, 100); // Cap at 100%
+                myBar.css('width', newWidth + '%');
+
             });
 
         });
