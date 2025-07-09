@@ -26,7 +26,7 @@
 
 
         <div class="div text-end">
-            <button type="button" class="btn btn-primary" data-id="1" data-bs-toggle="modal" data-bs-target="#myModal">
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">
                 <i class="fa-solid fa-plus"></i> modal
             </button>
             <a class="btn btn-success" href="./create.html"><i class="fa-solid fa-plus"></i></a>
@@ -46,8 +46,8 @@
                     <td width="15%">amy</td>
                     <td width="30%">0911-111-111</td>
                     <td>
-                        <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                            data-bs-target="#myModalEdit">
+                        <button type="button" class="btn btn-primary edit-modal-btn" data-bs-toggle="modal"
+                            data-bs-target="#myModalEdit" data-id="1">
                             <i class="fa-regular fa-pen-to-square"></i> modal
                         </button>
                         <a href="./edit.html" class="btn btn-warning"><i class="fa-regular fa-pen-to-square"></i></a>
@@ -60,7 +60,11 @@
                     <td>0922-222-222</td>
 
                     <td>
-                        <a href="" class="btn btn-warning"><i class="fa-regular fa-pen-to-square"></i></a>
+                        <button type="button" class="btn btn-primary edit-modal-btn" data-bs-toggle="modal"
+                            data-bs-target="#myModalEdit" data-id="2">
+                            <i class="fa-regular fa-pen-to-square"></i> modal
+                        </button>
+                        <a href="./edit.html" class="btn btn-warning"><i class="fa-regular fa-pen-to-square"></i></a>
                         <a href="" class="btn btn-danger"><i class="fa-solid fa-trash-can"></i></a>
                     </td>
                 </tr>
@@ -69,7 +73,11 @@
                     <td>cat</td>
                     <td>0933-333-333</td>
                     <td>
-                        <a href="" class="btn btn-warning"><i class="fa-regular fa-pen-to-square"></i></a>
+                        <button type="button" class="btn btn-primary edit-modal-btn" data-bs-toggle="modal"
+                            data-bs-target="#myModalEdit" data-id="3">
+                            <i class="fa-regular fa-pen-to-square"></i> modal
+                        </button>
+                        <a href="./edit.html" class="btn btn-warning"><i class="fa-regular fa-pen-to-square"></i></a>
                         <a href="" class="btn btn-danger"><i class="fa-solid fa-trash-can"></i></a>
                     </td>
                 </tr>
@@ -143,7 +151,7 @@
                                 <div class="col">
                                     <label for="name">ID:</label>
                                     <p>
-                                        1
+                                        <span id="myID">1</span>
                                     </p>
                                 </div>
                             </div>
@@ -169,6 +177,8 @@
 
                     <!-- Modal footer -->
                     <div class="modal-footer">
+                        <input type="hidden" class="form-control hidden-ID" id="" name="hiddenID" value="">
+
                         <button type="submit" class="btn btn-primary">Submit</button>
                         <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
                     </div>
@@ -177,6 +187,43 @@
             </div>
         </div>
     </div>
+
+    <!-- 載入bs5 js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.7/js/bootstrap.min.js"
+        integrity="sha512-zKeerWHHuP3ar7kX2WKBSENzb+GJytFSBL6HrR2nPSR1kOX1qjm+oHooQtbDpDBSITgyl7QXZApvDfDWvKjkUw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+    <!-- 載入jquery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        $(document).ready(function () {
+            // 1.bind
+            const editModalBtn = $('.edit-modal-btn');
+            const myID = $('#myID');
+            const hiddenID = $('.hidden-ID');
+
+
+            // 2.action
+            editModalBtn.click(function (e) {
+                // e.preventDefault();
+                console.log('editModalBtn', editModalBtn);
+
+                let tmpText = $(this).attr('data-id');
+
+                // form 傳過去 ID
+                hiddenID.val(tmpText);
+                // 顯示ID
+
+                myID.text(tmpText);
+
+
+            });
+
+        });
+    </script>
 
 </body>
 
