@@ -53,10 +53,12 @@
         myArr.forEach(function (value, key) {
             let tpmValue = 0;
             let bonus = 5000;
+            let newBonus = 10000;
             if (value < 50000) {
-                tpmValue = (bonus + value + 10000);
+                tpmValue = bonus + value + newBonus;
+
             } else {
-                tpmValue = (bonus + value);
+                tpmValue = bonus + value;
             }
             tmpArr.push(tpmValue);
             sum += tpmValue;
