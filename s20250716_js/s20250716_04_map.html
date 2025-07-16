@@ -39,22 +39,31 @@
 
         // 1.bind
         let myArr = [1, 2, 3, 4, 5];
+        let newArr = [];
         // const classBtn = document.querySelectorAll('.class-btn');
 
         // 2.action
 
-        //sum array data
-        let sum = 0;
         myArr.forEach(function (value, key) {
+            // array push ?
+            newArr.push(value * 3);
 
-            sum += value
-            console.log('key', key);
-            console.log('value', value);
+
         });
 
-        console.log('sum', sum);
+        console.log('newArr', newArr);
 
-        // 
+        // map
+
+        let mapArr = myArr.map(function (value, key) {
+            return value * 10;
+
+        });
+
+        console.log('mapArr', mapArr);
+
+
+
 
 
 
