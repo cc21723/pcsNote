@@ -1,4 +1,4 @@
-[
+let data = [
     {
         "id": 1,
         "word": "analyze",
