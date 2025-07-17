@@ -10,7 +10,16 @@ function dd($data)
 }
 
 
-class Car
+interface Money{
+    public function fly();
+}
+
+
+interface Money100{
+    public function swim();
+}
+
+class Car implements Money,Money100
 {
 
     // porperties
@@ -21,7 +30,38 @@ class Car
     // methods
     function run()
     {
-        echo "$this->color 的 $this->name 正在跑";
+        echo "$this->color 的 $this->name 正在跑<br>";
+    }
+
+    function fly()
+    {
+        echo "$this->color 的 $this->name 正在飛<br>";
+    }
+
+    function swim()
+    {
+        echo "$this->color 的 $this->name 正在游泳<br>";
+    }
+}
+
+
+class Car2 implements Money100
+{
+
+    // porperties
+    public $name;
+    public $color;
+
+
+    // methods
+    function run()
+    {
+        echo "$this->color 的 $this->name 正在跑<br>";
+    }
+ 
+    function swim()
+    {
+        echo "$this->color 的 $this->name 正在游泳<br>";
     }
 }
 
@@ -31,6 +71,7 @@ $car = new Car();
 $car->name = '小客車';
 $car->color = '紅色';
 $car->run();
+$car->fly();
 
 $tank = new Car();
 $tank->name = '坦克車';
