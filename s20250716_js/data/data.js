@@ -29,7 +29,8 @@ let data = [
         "ipa": "/əˈses/",
         "meaning_zh": "評估；估價",
         "example_en": "The teacher will assess your writing skills.",
-        "example_zh": "老師將會評估你的寫作能力。"
+        "example_zh": "老師將會評估你的寫作能力。",
+        'type': 1
     },
     {
         "id": 5,

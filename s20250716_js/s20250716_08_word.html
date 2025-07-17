@@ -14,6 +14,13 @@
             width: 200px;
             height: 200px;
         }
+
+        /* .box {
+            width: 100px;
+            width: 80%;
+            height: 100px;
+            margin: auto ;
+        } */
     </style>
 
 </head>
@@ -22,18 +29,22 @@
 
     <div class="container">
         <div class="row my-row">
-            <!-- <div class="col-12 col-sm-4 mt-3">
-                <div class="box  text-center">
-                    <img class="img-fluid" src="./images/01.png" alt="">
+            <div class="col-12 col-sm-4 mt-3">
+                <div class="box bg-dark  text-center">
+                    <a href="https://www.merriam-webster.com/dictionary/apple"><img class="img-fluid"
+                            src="./images/01.png" alt=""></a>
                     <p class="word-id">id:1</p>
-                    <p class="word">word:apple</p>
+                    <a
+                        href="https://dictionary.cambridge.org/dictionary/english-chinese-traditional/apple#google_vignette">
+                        <p class="word">word:apple</p>
+                    </a>
                     <p class="ipa">ipa:appleV</p>
                     <p class="meaning-zh">meaning_zh:蘋果</p>
                     <p class="example-en">example_en:好吃的蘋果</p>
                     <p class="example-zh">example_zh:good apple</p>
                     <hr>
                 </div>
-            </div> -->
+            </div>
         </div>
     </div>
 
@@ -65,9 +76,9 @@
                 let tmpText = `
                 <div class="col-12 col-sm-4 mt-3">
                     <div class="box text-center">
-                        <img class="img-fluid" src="./images/${value.word}.png" alt="">
+                        <a href="https://www.merriam-webster.com/dictionary/${value.word}"><img class="img-fluid" src="./images/${value.word}.png" alt=""></a>                        
                         <p class="word-id">${value.id}</p>
-                        <p class="word">${value.word}</p>
+                        <a href="https://dictionary.cambridge.org/dictionary/english-chinese-traditional/${value.word}"><p class="word">${value.word}</p></a>                        
                         <p class="ipa">${value.ipa}</p>
                         <p class="meaning-zh">${value.meaning_zh}</p>
                         <p class="example-en">${value.example_en}</p>
