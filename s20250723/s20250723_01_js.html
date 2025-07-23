@@ -35,7 +35,7 @@
     <div class="container">
         <div class="row">
             <div class="col-2 text-center">
-                <span class="text-info display-3" id="time">60</span>
+                <span class="text-info display-3" id="time"></span>
             </div>
             <div class="col-8 text-center">
                 投籃大賽
@@ -90,7 +90,9 @@
         const scoreSpan = document.getElementById("score");
         const timeSpan = document.getElementById("time");
         let score = 0;
-        let startTime = 33;
+        let startTime = 10;
+
+        let myInterval = null;
 
         console.log('startBtn', startBtn);
         console.log('shotBtn', shotBtn);
@@ -108,11 +110,14 @@
             shotBtn.setAttribute('class', 'btn btn-success class-btn me-5 show-btn');
 
 
-            setInterval(() => {
+            myInterval = setInterval(() => {
                 startTime--;
                 timeSpan.innerHTML = startTime;
-                if(startTime < 30){
-                    timeSpan.setAttribute('class','text-danger display-3')
+                if (startTime < 1) {
+                    clearInterval(myInterval);
+                }
+                if (startTime < 5) {
+                    timeSpan.setAttribute('class', 'text-danger display-3')
                 }
 
 
