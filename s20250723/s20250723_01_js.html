@@ -91,6 +91,7 @@
         const timeSpan = document.getElementById("time");
         let score = 0;
         let startTime = 10;
+        let bonusTime = 5;
 
         let myInterval = null;
 
@@ -116,10 +117,11 @@
                 if (startTime < 1) {
                     clearInterval(myInterval);
                 }
-                if (startTime < 5) {
+                if (startTime < bonusTime) {
                     timeSpan.setAttribute('class', 'text-danger display-3')
                 }
 
+                
 
             }, 1000);
 
@@ -127,7 +129,17 @@
         shotBtn.addEventListener('click', function () {
             console.log('shotBtn click ok');
             // 加分
-            score += 2;
+
+            if (startTime < 1) {
+                return false;
+            }
+
+            if (startTime > bonusTime) {
+                score += 2;
+            } else {
+                score += 3;
+            }
+
             scoreSpan.innerHTML = score;
 
 
