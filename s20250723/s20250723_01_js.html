@@ -34,8 +34,8 @@
 
     <div class="container">
         <div class="row">
-            <div class="col-2">
-                <span>60</span>
+            <div class="col-2 text-center">
+                <span class="text-info display-3" id="time">60</span>
             </div>
             <div class="col-8 text-center">
                 投籃大賽
@@ -88,7 +88,9 @@
         const shotBtn = document.getElementById("shotBtn");
         const stopBtn = document.getElementById("stopBtn");
         const scoreSpan = document.getElementById("score");
+        const timeSpan = document.getElementById("time");
         let score = 0;
+        let startTime = 33;
 
         console.log('startBtn', startBtn);
         console.log('shotBtn', shotBtn);
@@ -104,6 +106,17 @@
             console.log('startBtn click ok');
             this.setAttribute('class', 'btn btn-primary class-btn me-5 hide-btn ');
             shotBtn.setAttribute('class', 'btn btn-success class-btn me-5 show-btn');
+
+
+            setInterval(() => {
+                startTime--;
+                timeSpan.innerHTML = startTime;
+                if(startTime < 30){
+                    timeSpan.setAttribute('class','text-danger display-3')
+                }
+
+
+            }, 1000);
 
         });
         shotBtn.addEventListener('click', function () {
