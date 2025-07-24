@@ -55,7 +55,9 @@
                 <img src="./images/ball_left.png" alt="">
             </div>
             <div class="col-8 text-center">
-                <span id="score">100</span>
+                目前分數
+                <br>
+                <span id="score"></span>
             </div>
             <div class="col-2">
                 <img src="./images/ball.png" alt="">
@@ -172,13 +174,29 @@
 
 
         });
+
+
         stopBtn.addEventListener('click', function () {
             console.log('stopBtn click ok');
 
             score = 0;
             scoreSpan.innerHTML = score;
 
+            // stop timer
+            clearInterval(myInterval);
+            startTime = 10;
+            timeSpan.innerHTML = startTime;
+            timeSpan.setAttribute('class', 'text-info display-3')
+
+            // shotBtn hideBtn
+            shotBtn.setAttribute('class', 'btn btn-success class-btn me-5 hide-btn');
+
+            // startBtn showBtn
+            startBtn.setAttribute('class', 'btn btn-primary class-btn me-5 show-btn');
+
         });
+
+
 
         $(document).ready(function () {
 
