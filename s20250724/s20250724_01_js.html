@@ -41,7 +41,7 @@
                 投籃大賽
                 <hr>
             </div>
-            <div class="col-2">                
+            <div class="col-2">
                 最高分數
                 <br>
                 <span id="maxScore"></span>
@@ -98,7 +98,7 @@
         let bonusTime = 5;
         let maxScore = 0;
 
-        localStorage.setItem('maxScore', 123);
+        // localStorage.setItem('maxScore', 50);
         let getMaxScore = Number(localStorage.getItem('maxScore'));
         if (getMaxScore) {
             maxScore = getMaxScore;
@@ -160,6 +160,15 @@
             }
 
             scoreSpan.innerHTML = score;
+
+            // 最高分數 計算
+            // 儲存
+            if (score > maxScore) {
+                maxScore = score;
+                localStorage.setItem('maxScore', maxScore);
+                maxScoreSpan.innerHTML = maxScore;
+            }
+
 
 
         });
