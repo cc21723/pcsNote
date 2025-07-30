@@ -18,10 +18,17 @@
     <div class="container">
         <div class="row">
             <div class="col">
-                <button type="button" class="btn btn-primary" id="myBtn">myBtn</button>
+                <h1 id="myH1">Hello h1</h1>
+            </div>
+            <div class="col">
+                <a id="myA" href="https://www.w3schools.com/jquery/jquery_traversing.asp">w3schools</a>
+            </div>
+            <div class="col">
+                <input type="text" name="" id="myInput" value="input">
             </div>
         </div>
     </div>
+
 
 
 
@@ -37,31 +44,25 @@
     <script>
         $(document).ready(function () {
             // 1.bind
-            // 可讀性 >> 簡短
-            const myBtnJs = document.getElementById("myBtn");
-            console.log('myBtnJs', myBtnJs);
+            const myH1 = $("#myH1");
+            console.log('myH1', myH1);
 
-            const myBtn = $("#myBtn");
-            console.log('myBtn', myBtn);
+            const myA = $("#myA")
+            console.log('myA', myA);
 
-            // jquery method 只可以用在jq obj
-            // myBtn.click(function (e) {
-            //     e.preventDefault();
-            //     console.log('myBtn click ok');
-
-
-            // });
-
-            $("#myBtn").click(function (e) {
-                e.preventDefault();
-                console.log('no bind click ok');
-
-
-            });
-           
+            const myInput = $("#myInput");
+            console.log('myInput', myInput);
 
 
             // 2.action
+            // text() jquery method
+            // .innerHTML js property
+            // .innerText js property
+            myH1.text('hell change myH1');
+            myA.text('hell change myA');
+            // val() jquery method
+            // .value js property
+            myInput.val('hell change myInput');
 
         });
     </script>
