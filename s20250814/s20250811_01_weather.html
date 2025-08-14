@@ -74,12 +74,21 @@
                     // let data = response.records.location[0].locationName;
                     let data = response.records.location;
 
+                    // let tmpData = data[0].weatherElement[2].time[0].parameter.parameterName;
+;
+                    console.log('tmpData', tmpData);
+
+                    // 找新北市
+                    // 找出　12 24 36
+                    // minT - maxT
+
+
                     let tmpText = ``;
 
                     $.each(data, function (key, value) {
                         tmpText += `
                             <tr>
-                                <td>${key+1}</td>
+                                <td>${key + 1}</td>
                                 <td>${value.locationName}</td>
                             </tr>
                         `
