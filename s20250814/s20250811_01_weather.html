@@ -33,7 +33,7 @@
             <tbody id="myTbody">
                 <!-- <tr>
                     <td>1</td>
-                    <td>新北市</td>
+                    <td>新北市 <img src="./day/1.svg" alt=""></td>
                     <td>27-34</td>
                     <td>27-31</td>
                     <td>27-34</td>
@@ -94,6 +94,16 @@
 
                     $.each(data, function (key, value) {
 
+                        // wx
+                        let wx12 = value.weatherElement[0].time[0].parameter.parameterName;
+                        let wx24 = value.weatherElement[0].time[1].parameter.parameterName;
+                        let wx36 = value.weatherElement[0].time[2].parameter.parameterName;
+
+                        // wxValue
+                        let wxValue12 = value.weatherElement[0].time[0].parameter.parameterValue;
+                        let wxValue24 = value.weatherElement[0].time[1].parameter.parameterValue;
+                        let wxValue36 = value.weatherElement[0].time[2].parameter.parameterValue;                        
+
                         // minT
                         let minT12 = value.weatherElement[2].time[0].parameter.parameterName;
                         let minT24 = value.weatherElement[2].time[1].parameter.parameterName;
@@ -109,9 +119,9 @@
                             <tr>
                                 <td>${key + 1}</td>
                                 <td>${value.locationName}</td>
-                                <td>${minT12}-${maxT12} &deg;C</td>
-                                <td>${minT24}-${maxT24} &deg;C</td>
-                                <td>${minT36}-${maxT36} &deg;C</td>
+                                <td>${minT12}-${maxT12} &deg;C ${wx12} <img src="./day/${wxValue12}.svg" alt=""></td>
+                                <td>${minT24}-${maxT24} &deg;C ${wx24} <img src="./day/${wxValue24}.svg" alt=""></td>
+                                <td>${minT36}-${maxT36} &deg;C ${wx36} <img src="./day/${wxValue36}.svg" alt=""></td>
                             </tr>
                         `;
                         // console.log('key', key);
