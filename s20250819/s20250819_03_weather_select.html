@@ -36,8 +36,8 @@
                         <label class="form-check-label" for="inlineCheckbox2">高雄市</label>
                     </div>
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" name="my-check[]" type="checkbox" id="" value="宜蘭市">
-                        <label class="form-check-label" for="inlineCheckbox2">宜蘭市</label>
+                        <input class="form-check-input" name="my-check[]" type="checkbox" id="" value="宜蘭縣">
+                        <label class="form-check-label" for="inlineCheckbox2">宜蘭縣</label>
                     </div>
                     <div class="form-check form-check-inline">
                         <input class="form-check-input" name="my-check[]" type="checkbox" id="" value="全部">
@@ -148,11 +148,11 @@
                     // 判斷locationArr , value.locationName是否有在裡面\
                     let tmpLocation = value.locationName;
                     let index = locationArr.indexOf(tmpLocation);
-
-                    // 不存在 -1 , 存在 1
-                    if (index > 0) {
-                        console.log('tmpLocation', tmpLocation);
-                        console.log('index', index);
+                    // indefOf method 回傳array key
+                    // 不存在 -1 , ['台北市','台中市'] 台北市 0 , 台中市 1
+                    console.log('tmpLocation', tmpLocation);
+                    console.log('index', index);
+                    if (index !== -1) {
                         content += `
                         <tr>
                             <td>${key + 1}</td>
