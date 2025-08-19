@@ -74,6 +74,64 @@
             const myTbody = $('#myTbody');
 
 
+            let testData = [
+                {
+                    'id': 1,
+                    'locationName': '台北市',
+                    'time': [
+                        {
+                            'name': '12',
+                            'stratTiem': '2025-08-19 09:00:00',
+                            'endTime': '2025-08-19 21:00:00',
+                            'maxT': '34',
+                            'minT': '25'
+                        },
+                        {
+                            'name': '24',
+                            'stratTiem': '2025-08-19 09:00:00',
+                            'endTime': '2025-08-19 21:00:00',
+                            'maxT': '34',
+                            'minT': '25'
+                        },
+                        {
+                            'name': '36',
+                            'stratTiem': '2025-08-19 09:00:00',
+                            'endTime': '2025-08-19 21:00:00',
+                            'maxT': '34',
+                            'minT': '25'
+                        },
+                    ]
+                },
+                {
+                    'id': 2,
+                    'locationName': '新北市',
+                    'time': [
+                        {
+                            'name': '12',
+                            'stratTiem': '2025-08-19 09:00:00',
+                            'endTime': '2025-08-19 21:00:00',
+                            'maxT': '34',
+                            'minT': '25'
+                        },
+                        {
+                            'name': '24',
+                            'stratTiem': '2025-08-19 09:00:00',
+                            'endTime': '2025-08-19 21:00:00',
+                            'maxT': '34',
+                            'minT': '25'
+                        },
+                        {
+                            'name': '36',
+                            'stratTiem': '2025-08-19 09:00:00',
+                            'endTime': '2025-08-19 21:00:00',
+                            'maxT': '34',
+                            'minT': '25'
+                        },
+                    ]
+                }
+            ]
+
+
             // 2.action init
             let url = `https://opendata.cwa.gov.tw/api/v1/rest/datastore/F-C0032-001?Authorization=${pwd}`;
             $.ajax({
