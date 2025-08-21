@@ -117,15 +117,46 @@
             // init select
             let content = ``;
             $.each(data, function (key, value) {
-                console.log('key', key);
-                console.log('value', value);
+                // console.log('key', key);
+                // console.log('value', value);
+                let tmpDetails = value.content;
+                console.log('tmpDetails', tmpDetails);
 
                 content += `
-                <option>${value.id} - ${value.name}</option>
+                <option value='${value.id}'>${value.id} - ${value.name}</option>
                 `;
 
             });
             mySelect.append(content);
+
+
+            // mySelect change
+            mySelect.change(function (e) {
+                e.preventDefault();
+
+                // append 一開始要清空
+                mySelectDetail.html('');
+
+                // get mySelect value
+                let selectValue = $(this).val();
+                // id = key + 1
+                let tmpKey = selectValue - 1;;
+                console.log('selectValue', selectValue);
+                console.log('tmpKey', tmpKey);
+                let tmpDataContent = data[tmpKey].content;
+                console.log('tmpDataContent', tmpDataContent);
+
+                // show data
+                let content = ``;
+                $.each(tmpDataContent, function (key, value) {
+                    content += `
+                    <option value='${value}'>${value}</option>
+                    `;
+                });
+                mySelectDetail.append(content);
+
+
+            });
 
 
 
