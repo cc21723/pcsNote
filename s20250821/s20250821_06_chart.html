@@ -18,15 +18,11 @@
 
     <div class="container">
         <div class="row" id="myRow">
-            <div class="col">
+            <!-- <div class="col">
                 <div>
                     <canvas id="myChart"></canvas>
                 </div>
-            </div>
-
-            <div class="col">
-                <button type="button" id="myBtn">myBtn</button>
-            </div>
+            </div> -->
         </div>
     </div>
 
@@ -55,10 +51,22 @@
         $(document).ready(function () {
 
             // function
-            function chartFun(myDataInput, myLabelsInput) {
-                const ctx = document.getElementById('myChart');
-                let myData = myDataInput;
-                let myLabels = myLabelsInput;
+            function chartFun(data, myIDInput) {
+                // let myData = [100, 200, 300, 400, 250, 300];       
+                let myData = [];
+                $.each(data, function (key, value) {
+                    myData.push(value.money);
+                });
+                console.log('myData', myData);
+
+                // let myLabels = ['1月', '2月', '3月', '4月', '5月', '6月'];
+                let myLabels = [];
+                $.each(data, function (key, value) {
+                    myLabels.push(value.name);
+                });
+                console.log('myLabels', myLabels);
+
+                const ctx = document.getElementById(`${myIDInput}`);
 
                 new Chart(ctx, {
                     type: 'bar',
@@ -73,7 +81,9 @@
                     options: {
                         scales: {
                             y: {
-                                beginAtZero: true
+                                beginAtZero: true,
+                                min: 0,
+                                max: 600
                             }
                         }
                     }
@@ -81,7 +91,7 @@
             }
 
             // 1.bind
-            const myBtn = $('#myBtn');
+            const myRow = $('#myRow');
 
             let data1 = [
                 {
@@ -182,30 +192,35 @@
                 }
             ];
 
-            // let myData = [100, 200, 300, 400, 250, 300];
-            let myData = [];
-            $.each(data, function (key, value) {
-                myData.push(value.money);
-            });
-            console.log('myData', myData);
 
-            // let myLabels = ['1月', '2月', '3月', '4月', '5月', '6月'];
-            let myLabels = [];
-            $.each(data, function (key, value) {
-                myLabels.push(value.name);
-            });
-            console.log('myLabels', myLabels);
+
+
 
             // 2.action
-            myBtn.click(function (e) {
-                e.preventDefault();
-                chartFun(myData, myLabels);
 
-            });
+            // 放入chart js id
+            let tmpChart = `
+                <div class="col">
+                    <div>
+                        <canvas id="myChart1"></canvas>
+                    </div>
+                </div>      
+                 <div class="col">
+                    <div>
+                        <canvas id="myChart2"></canvas>
+                    </div>
+                </div>    
+                 <div class="col">
+                    <div>
+                        <canvas id="myChart3"></canvas>
+                    </div>
+                </div>    
+            `;
+            myRow.append(tmpChart);
 
-            // chartFun(myData1, myLabels);
-            // chartFun(myData2, myLabels);
-            // chartFun(myData3, myLabels);
+            chartFun(data1, 'myChart1');
+            chartFun(data2, 'myChart2');
+            chartFun(data3, 'myChart3');
 
 
         });
