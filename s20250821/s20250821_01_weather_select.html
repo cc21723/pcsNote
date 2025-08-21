@@ -124,34 +124,10 @@
 
     <script>
         $(document).ready(function () {
-            // 1.bind
-            const data = testData;
-            const myTbody = $('#myTbody');
-            const myForm = $('#myForm');
-            const myBtn = $('#myBtn');
-            const btnClass = $('.btn-class');
-            const mySelect = $('#mySelect');
-            // console.log('data', data);
-
-
-            // 2.action
-
-            // myBtn click
-            btnClass.click(function (e) {
-                e.preventDefault();
-                // 當我按下btn , checkbox 取消選取
-                // $('input[type=checkbox]').prop("checked", false);
-                $('.my-checkbox').prop("checked", false);
-
-
-                console.log('myBtn ok');
-                let getLocation = $(this).attr('data-location');
-                console.log('getLocation', getLocation);
-
+            // function
+            function showLocationWeatherFun(getLocation) {
                 myTbody.html('');
                 content = ``;
-
-
                 // for
                 // php , js
                 // break 碰到後中斷
@@ -189,6 +165,35 @@
                 });
 
                 myTbody.append(content);
+            }
+
+
+
+            // 1.bind
+            const data = testData;
+            const myTbody = $('#myTbody');
+            const myForm = $('#myForm');
+            const myBtn = $('#myBtn');
+            const btnClass = $('.btn-class');
+            const mySelect = $('#mySelect');
+            // console.log('data', data);
+
+
+            // 2.action
+
+            // myBtn click
+            btnClass.click(function (e) {
+                e.preventDefault();
+                // 當我按下btn , checkbox 取消選取
+                // $('input[type=checkbox]').prop("checked", false);
+                $('.my-checkbox').prop("checked", false);
+
+
+                console.log('myBtn ok');
+                let getLocation = $(this).attr('data-location');
+                console.log('getLocation', getLocation);
+
+                showLocationWeatherFun(getLocation);
 
             });
 
@@ -277,47 +282,13 @@
                 let getLocation = $(this).val();
                 console.log('getLocation', getLocation);
 
-                myTbody.html('');
-                content = ``;
-
-
-                // for
-                // php , js
-                // break 碰到後中斷
-                // continue 跳過當下
-
-                // jquery
-                // return false = break
-                // return true = continue
-
-                // data 裡面 有沒有getLocation
-                // let index = data.indexOf(getLocation);
-                // console.log('index', index);
-                // data locationName 是在第二層 所以沒法使用indexOf method
-
-
-                // https://chatgpt.com/share/68a425d1-e330-800a-b435-0754cbda824b
-                $.each(data, function (key, value) {
-                    console.log('key', key);
-                    console.log('value', value);
-
-                    if (getLocation == value.locationName) {
-                        content += `
-                        <tr>
-                            <td>${key + 1}</td>
-                            <td>${value.locationName}</td>
-                            <td>${value.time[0].minT}-${value.time[0].maxT}</td>
-                            <td>${value.time[1].minT}-${value.time[1].maxT}</td>
-                            <td>${value.time[2].minT}-${value.time[2].maxT}</td>
-                        </tr>
-                        `;
-
-                        return false;
-                    }
-
-                });
-
-                myTbody.append(content);
+                // function
+                // 1.清空table
+                // 2.getLocation data
+                // 3.each data 看看有沒有符合 getLocation
+                // 4.append table
+                showLocationWeatherFun(getLocation);
+                // showLocationWeatherFun(myTbody, data, getLocation);
 
             });
 
