@@ -28,45 +28,7 @@ curl_setopt_array($ch, [
 
 $result = curl_exec($ch);
 
-// curl_exec
-// 抓出來$result type string
-// {"result":{"limit":20,"offset":0,"count":314,"sort":"","results":[{"_id":1,"_importdate":{"date":"2025-
-
-// 透過json_decode 
-// type array
-// (
-//     [result] => Array
-//         (
-//             [limit] => 20
-//             [offset] => 0
-//             [count] => 314
-//             [sort] => 
-//             [results] => Array
-//                 (
-//                     [0] => Array
-//                         (
-//                             [_id] => 1
-//                             [_importdate] => Array
-//                                 (
-//                                     [date] => 2025-06-09 11:26:48.083629
-//                                     [timezone_type] => 3
-//                                     [timezone] => Asia/Taipei
-//                                 )
-
-
-// $resultType = gettype($result);
-// dd($resultType);
-// dd($result);
+echo($result);
 
 //關閉連線
 curl_close($ch);
-
-// decode 解開
-// encode 封起來
-$data = json_decode($result, true);
-// // $data = $result;
-
-// // // 用 dd() 秀出來
-// $result = gettype($data);
-// dd($result);
-dd($data);
