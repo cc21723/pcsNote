@@ -31,7 +31,7 @@ function dd($data)
 
 
 // http://localhost/s20250828/admin/sum.php?num1=500&num2=200
-$input = $_GET;
+$input = $_POST;
 
 $sum = $input['num1'] + $input['num2'];
 
@@ -41,5 +41,5 @@ $data = [
     'sum' => $sum
 ];
 
-dd($data);
+// dd($data);
 echo json_encode($data);
