@@ -20,7 +20,7 @@
     <!-- 前台畫面 -->
     <div class="container mt-3">
         <h2>數字加總計算機</h2>
-        <form action="http://localhost/s20250828/admin/sum.php">
+        <form action="" id="myForm" method="get">
             <div class="mb-3 mt-3">
                 <label for="num1">Num1:</label>
                 <input type="num1" class="form-control" id="num1" placeholder="Enter num1" name="num1">
@@ -48,6 +48,9 @@
 
     <script>
         $(document).ready(function () {
+
+
+
             // 前台
             // 1.點菜 / num1 num2
             // 2.麵線 甜不辣 form
@@ -57,6 +60,47 @@
             // 1.點菜
             // 2.麵線 甜不辣
             // 3.服務生 上菜
+
+            // 1.bind
+            const myForm = $('#myForm');
+
+            // 2.action
+
+            let url = "http://localhost/s20250828/admin/sum.php";
+
+            // let formData = myForm.serializeArray();
+            // console.log('formData', formData);
+
+            myForm.submit(function (e) {
+                e.preventDefault();
+                console.log('submit ok');
+                $.ajax({
+                    type: "get",
+                    url: url,
+                    // data: "data",
+                    dataType: "json",
+                    success: function (response) {
+                        console.log('response', response);
+
+                    }
+                });
+
+
+            });
+
+            $.ajax({
+                type: "get",
+                url: url,
+                // data: "data",
+                dataType: "json",
+                success: function (response) {
+                    console.log('response', response);
+
+                },
+                error: function (error) {
+                    console.log('error', error);
+                }
+            });
 
 
 
