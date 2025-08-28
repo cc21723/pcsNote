@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 載入css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.8/css/bootstrap.min.css"
+        integrity="sha512-2bBQCjcnw658Lho4nlXJcc6WkV/UxpE/sAokbXPxQNGqmNdQrWqtw26Ns9kFF/yG792pKR1Sx8/Y1Lf1XN4GKA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+
+    </style>
+
+</head>
+
+<body>
+
+
+
+    <!-- 載入bs5 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.8/js/bootstrap.min.js"
+        integrity="sha512-nKXmKvJyiGQy343jatQlzDprflyB5c+tKCzGP3Uq67v+lmzfnZUi/ZT+fc6ITZfSC5HhaBKUIvr/nTLCV+7F+Q=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <!-- 載入jquery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script>
+        $(document).ready(function () {
+            let result = [];
+            function getMsgFun($tmpIP) {
+                let url = `http://${tmpIP}/hello.php`;
+                console.log('url', url);
+                $.ajax({
+                    type: "post",
+                    url: url,
+                    // data: "data",
+                    dataType: "json",
+                    success: function (response) {
+                        // console.log('response', response);
+                        if (!response.length) {
+                            let tmpData = {
+                                id: Number(response.id),
+                                name: response.name,
+                                msg: response.msg,
+                            }
+                            result.push(tmpData);
+                        }
+                    }
+                });
+            }
+
+
+            let tmpIP = '192.168.211.63';
+
+
+            for (let index = 52; index <= 73; index++) {
+                tmpIP = `192.168.211.${index}`;
+                getMsgFun(tmpIP);
+            }
+
+            setTimeout(() => {
+                result.sort((a, b) => a.id - b.id);
+                console.log('result', result);
+            }, 3000);
+
+
+
+
+
+            // let tmpUrl = `http://192.168.211.69/hello.php`;
+            // $.ajax({
+            //     type: "post",
+            //     url: tmpUrl,
+            //     // data: "data",
+            //     dataType: "json",
+            //     success: function (response) {
+            //         console.log('response', response);
+            //         // if (!response.length) {
+            //         //     result.push(response);
+            //         // }
+            //     }
+            // });
+            // ip 3,52 - 73
+
+        });
+    </script>
+</body>
+
+</html>
