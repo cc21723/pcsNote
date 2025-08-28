@@ -30,27 +30,16 @@ function dd($data)
 }
 
 
-// $data = [
-//     [
-//         'id' => 1,
-//         'name' => 'amy'
-//     ],
-//     [
-//         'id' => 2,
-//         'name' => 'bob'
-//     ],
-//     [
-//         'id' => 3,
-//         'name' => 'cat'
-//     ]
-// ];
+// http://localhost/s20250828/admin/sum.php?num1=500&num2=200
+$input = $_GET;
 
+$sum = $input['num1'] + $input['num2'];
 
 $data = [
-    'num1' => 100,
-    'num2' => 50,
-    'sum' => 150
+    'num1' => $input['num1'],
+    'num2' => $input['num2'],
+    'sum' => $sum
 ];
 
-// dd($data);
+dd($data);
 echo json_encode($data);
