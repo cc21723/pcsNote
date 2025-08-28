@@ -1,5 +1,9 @@
 <?php
-
+// cors fix 
+// 公園
+header("Access-Control-Allow-Origin: *");
+// 開放特定網域
+// header("Access-Control-Allow-Origin: http://127.0.0.1:5500");
 // 註解 寫在php內
 // 如果寫在html , ajax接收檔案 就不會json
 
