@@ -30,19 +30,26 @@ function dd($data)
 }
 
 
+// $data = [
+//     [
+//         'id' => 1,
+//         'name' => 'amy'
+//     ],
+//     [
+//         'id' => 2,
+//         'name' => 'bob'
+//     ],
+//     [
+//         'id' => 3,
+//         'name' => 'cat'
+//     ]
+// ];
+
+
 $data = [
-    [
-        'id' => 1,
-        'name' => 'amy'
-    ],
-    [
-        'id' => 2,
-        'name' => 'bob'
-    ],
-    [
-        'id' => 3,
-        'name' => 'cat'
-    ]
+    'num1' => 100,
+    'num2' => 50,
+    'sum' => 150
 ];
 
 // dd($data);
