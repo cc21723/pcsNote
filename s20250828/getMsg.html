@@ -32,60 +32,43 @@
 
     <script>
         $(document).ready(function () {
-            let result = [];
-            function getMsgFun($tmpIP) {
-                let url = `http://${tmpIP}/hello.php`;
-                console.log('url', url);
-                $.ajax({
-                    type: "post",
-                    url: url,
-                    // data: "data",
-                    dataType: "json",
-                    success: function (response) {
-                        // console.log('response', response);
-                        if (!response.length) {
-                            let tmpData = {
-                                id: Number(response.id),
-                                name: response.name,
-                                msg: response.msg,
-                            }
-                            result.push(tmpData);
-                        }
-                    }
-                });
+            function getDataFun($tmpIP) {
+                let tmpUrl = `http://${$tmpIP}/hello.php`;
+                console.log('fun url =>', tmpUrl);
+
+                // $.ajax({
+                //     type: "post",
+                //     url: tmpUrl,
+                //     // data: "data",
+                //     dataType: "json",
+                //     success: function (response) {
+                //         console.log('response', response);
+                //         // if (!response.length) {
+                //         //     result.push(response);
+                //         // }
+                //     }
+                // });
             }
 
+            // 1.bind
 
-            let tmpIP = '192.168.211.63';
+            // 2.action init
+            // getDataFun();
 
-
+            // for 52 73
+            // let tmpIP = `192.168.211.3`;
             for (let index = 52; index <= 73; index++) {
-                tmpIP = `192.168.211.${index}`;
-                getMsgFun(tmpIP);
+                // console.log('index', index);
+                let tmpIP = `192.168.211.${index}`;
+                // console.log('tmpIP', tmpIP);
+                getDataFun(tmpIP);
             }
 
-            setTimeout(() => {
-                result.sort((a, b) => a.id - b.id);
-                console.log('result', result);
-            }, 3000);
 
 
 
 
 
-            // let tmpUrl = `http://192.168.211.69/hello.php`;
-            // $.ajax({
-            //     type: "post",
-            //     url: tmpUrl,
-            //     // data: "data",
-            //     dataType: "json",
-            //     success: function (response) {
-            //         console.log('response', response);
-            //         // if (!response.length) {
-            //         //     result.push(response);
-            //         // }
-            //     }
-            // });
             // ip 3,52 - 73
 
         });
