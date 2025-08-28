@@ -7,6 +7,12 @@ function dd($data)
     echo "</pre>";
 }
 
+header("Access-Control-Allow-Origin: *");
+// header("Access-Control-Allow-Origin: https://example.com");
+// header("Access-Control-Allow-Origin: https://192.168.211.3");
+// header("Access-Control-Allow-Origin: https://localhost");
+// header("Access-Control-Allow-Origin: https://127.0.0.1:5500");
+
 //init curl
 $ch = curl_init();
 //curl_setopt可以設定curl參數
